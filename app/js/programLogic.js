@@ -16,6 +16,7 @@ function modalFunc2(){
 	$('#modal1').modal();
 	$('select').material_select();
 	$( "div.first" ).toggleClass( "second" );
+	/*Hiding and show the div's*/
 	$(".second").show();
 	$(".first").hide();
 };	
