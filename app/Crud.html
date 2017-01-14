@@ -38,16 +38,24 @@
             <div class="row">
               <div class="col s12 ">
                 <div class="input-field inline">
-                <a href="#" class="" onclick="andm()">
+                <a href="#modal1" class="" onclick="modalFunc2()">
                 <i class="material-icons md-60 ">assignment_ind</i>
                 </div>
                 <span class="edit_label hvr-pulse-shrink hoverColor">Add New Category</span></a>
               </div>
             </div>
             <div class="row">
+              <div class="col s12 ">
+                <a class="grey-text text-lighten-4" href="https://github.com/technologeek">Download Text
+                <i class="material-icons">content_paste</i></a>
+                <a class="grey-text text-lighten-4" href="https://github.com/technologeek">Download Excel
+                <i class="material-icons">insert_drive_file</i></a>
+              </div>
+            </div>
+            <div class="row">
                <div class="col s12">
                <div id="modal1" class="modal bottom-sheet">
-                   <div class="modal-content">
+                   <div class="modal-content first">
                      <h5>Enter Customer Details</h5>
                      <div class="input-field col s6">
                                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
@@ -62,26 +70,34 @@
                                  </select>
                                  <label for="category_select"><h6><b>Category</b></h6></label>
                                </div>
-                               <div class="input-field col s6" id="el">
-                                   <label for="category_select"><h6><b>Ratings:</b></h6></label>
+                               <div class="input-field col s6 left-align" id="el">
                                  </div>
+                                 <div class="input-field inline col s6">
+                                 Comments:
+                                          <input placeholder="Say Something.." type="text" class="">
+                                          </div>                                        
+                   </div>
+                   <div class="modal-content second">
+                    <h5>Add New Category</h5>
+                     <div class="input-field col s6">
+                                                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                                                    <label for="first_name"><h6><b>Category Name</b></h6></label>
+                                                  </div>
                    </div>
                    <div class="modal-footer">
-                     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
                    </div>
-                 </div>
-              
+                 </div>                                         
                </div>
-              
-            </div>
+              </div>
             <!-- Closing the main container div -->
           </div>
   <!--Import jQuery before materialize.js-->
        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
        <script type="text/javascript" src="js/materialize.min.js"></script>
-       <script type="text/javascript" src="js/programLogic.js"></script>
        <script type="text/javascript" src="js/jquery.rateyo.min.js"></script>
+       <script type="text/javascript" src="js/programLogic.js"></script>
        <script>if (window.module) module = window.module;</script>
   </body>
 </html>
