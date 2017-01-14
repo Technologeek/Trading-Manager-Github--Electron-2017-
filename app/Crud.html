@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Trader Manager</title>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/customPageStyles.css">
+    <link type="text/css" rel="stylesheet" href="css/CrudPage.css">
+    <link type="text/css" rel="stylesheet" href="css/hover-min.css">
+    <link type="text/css" rel="stylesheet" href="css/jquery.rateyo.min.css">
+  </head>
+  <body>
+  <div class="container">
+    <div class="col s12" id="color_1">
+      <p class="flow-text">Loaded</p>
+    </div>
+      <div class="row">
+         <div class="col s12">
+           <div class="row">
+             <div class="input-field col s12">
+               <i class="material-icons prefix">search</i>
+               <input type="text" id="autocomplete-input" class="autocomplete">
+               <label for="autocomplete-input">Search Clients</label>
+             </div>
+            </div>
+           </div>
+          </div>
+            <div class="row">
+              <div class="col s12 ">
+                <div class="input-field inline">
+                <a href="#modal1" onclick="modalFunc()">
+                <i class="material-icons md-60 ">group_add</i>
+                </div>
+                <span class="edit_label hvr-pulse-shrink hoverColor">Add New Client</span></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 ">
+                <div class="input-field inline">
+                <a href="#" class="" onclick="andm()">
+                <i class="material-icons md-60 ">assignment_ind</i>
+                </div>
+                <span class="edit_label hvr-pulse-shrink hoverColor">Add New Category</span></a>
+              </div>
+            </div>
+            <div class="row">
+               <div class="col s12">
+               <div id="modal1" class="modal bottom-sheet">
+                   <div class="modal-content">
+                     <h5>Enter Customer Details</h5>
+                     <div class="input-field col s6">
+                               <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                               <label for="first_name"><h6><b>Client Name</b></h6></label>
+                             </div>
+                             <div class="input-field col s6">
+                                 <select id="category_select">
+                                   <option value="" disabled selected>Choose your option</option>
+                                   <option value="1">Paypal</option>
+                                   <option value="2">Neteller</option>
+                                   <option value="3">Skrill</option>
+                                 </select>
+                                 <label for="category_select"><h6><b>Category</b></h6></label>
+                               </div>
+                               <div class="input-field col s6" id="el">
+                                   <label for="category_select"><h6><b>Ratings:</b></h6></label>
+                                 </div>
+                   </div>
+                   <div class="modal-footer">
+                     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                   </div>
+                 </div>
+              
+               </div>
+              
+            </div>
+            <!-- Closing the main container div -->
+          </div>
+  <!--Import jQuery before materialize.js-->
+       <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+       <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+       <script type="text/javascript" src="js/materialize.min.js"></script>
+       <script type="text/javascript" src="js/programLogic.js"></script>
+       <script type="text/javascript" src="js/jquery.rateyo.min.js"></script>
+       <script>if (window.module) module = window.module;</script>
+  </body>
+</html>

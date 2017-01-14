@@ -1,0 +1,11 @@
+{
+    "name": "trader",
+    "version": "0.1.0",
+    "main": "./main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "description": "A random app for now",
+    "license": "MIT"
+
+}
