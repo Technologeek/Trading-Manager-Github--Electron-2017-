@@ -86,7 +86,7 @@
                                                   </div>
                    </div>
                    <div class="modal-footer">
-                     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+                     <a href="#!" id="saveButton" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
                    </div>
                  </div>                                         
                </div>
@@ -99,6 +99,18 @@
        <script type="text/javascript" src="js/materialize.min.js"></script>
        <script type="text/javascript" src="js/jquery.rateyo.min.js"></script>
        <script type="text/javascript" src="js/programLogic.js"></script>
+       <script type="text/javascript" src="js/databaseLogic.js"></script>
+       <script type="text/javascript">
+          /* Use Jquery to your advantage */
+          $(document).ready(function() {
+            $('#saveButton').click(function() {
+                /// get the values of all the elements then call your db function.
+                var name = $('#first_name').val();
+                var categorys = $('#category_select').val();
+                insertClient(name, categorys);
+            });
+          });
+       </script>
        <script>if (window.module) module = window.module;</script>
   </body>
 </html>
