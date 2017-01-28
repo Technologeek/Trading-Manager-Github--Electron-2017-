@@ -32,6 +32,10 @@
     color: white;
 }
 /*Setting custom height for the modal*/
-#modal1 {
+/*#modal1 {
   height: 301px !important;
 }
+*/
+.modal.bottom-sheet {
+    top: auto!important;
+    }
