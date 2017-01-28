@@ -2,8 +2,8 @@ var Datastore = require('nedb');
 fs = require('fs');
 //*var clients = new Datastore({ filename: path.join(require('nw.gui').App.dataPath, 'clients.db') });
 
-var clients = new Datastore({ filename:  '../../database/clients.db', autoload: true });
-var category = new Datastore({ filename: '../../database/category.db', autoload: true });
+var clients = new Datastore({ filename:  'clients.db', autoload: true });
+var category = new Datastore({ filename: 'category.db', autoload: true });
 var insertClient = function(name, categorys) {
 	var data = {
 		name: name,
@@ -14,6 +14,26 @@ var insertClient = function(name, categorys) {
 	});
 };
 
+var insertCategory = function(categs) {
+	var categoryList = {
+		categs : categs
+	};
+	category.insert(categoryList, function(err,doc){
+		console.log('Inserted Category',doc.categs);
+	});
+	$.each(categoryList, function(key, value){
+		$('#category_name').append($('<option>', + {value : key}).text(value));
+	})
+};
+
+ var searchClients = function(name){
+      /*var data2 = {
+      name : name 
+      };*/	
+      clients.find({name: 'Rahul'}, function(err,doc) {
+      console.log('Found the name',doc);
+      });
+ };
 /*var data = {
 	name : 'tupac',
 	categorys : 'paypal'

@@ -26,3 +26,38 @@ function modalFunc2(){
 	    rating: 3.6
 	  });	 
 	});
+
+//Autocomplete Function using npm package as dependency 
+
+$(function (){
+var searchData = ""
+var autoComplete = $("#autocomplete-input").autocomplete({
+	limit : 10,
+	multiple : {
+          enable :false,
+	},
+	dropdown : {
+		el : '#autocomplete-input'
+	},
+	getData: function (value, callback) {
+             value = $('#autocomplete-input').val();
+	        // ... 
+	        console.log(name);
+	        callback(value, searchClients(name));
+	    }
+   });
+});	
+
+$(function() {	
+  $('input.autocomplete').autocomplete({
+  	source : "clients.db",
+    minLength: 3, 
+    delay: 0
+    /*data: {
+      "Apple": null,
+      "Microsoft": null,
+      "Google": 'http://placehold.it/250x250',
+    }*/
+  });
+});
+

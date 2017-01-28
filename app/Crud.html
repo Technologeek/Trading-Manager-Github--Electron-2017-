@@ -20,8 +20,8 @@
            <div class="row">
              <div class="input-field col s12">
                <i class="material-icons prefix">search</i>
-               <input type="text" id="autocomplete-input" class="autocomplete">
-               <label for="autocomplete-input">Search Clients</label>
+               <input type="text" id="autocompleteInput" class="autocomplete">
+               <label for="autocompleteInput">Search Clients</label>
              </div>
             </div>
            </div>
@@ -64,10 +64,10 @@
                              <div class="input-field col s6">
                                  <select id="category_select">
                                    <option value="" disabled selected>Choose your option</option>
-                                   <option value="1">Paypal</option>
-                                   <option value="2">Neteller</option>
-                                   <option value="3">Skrill</option>
-                                   <option value="4">Payza</option>
+                                   <option>Paypal</option>
+                                   <option>Neteller</option>
+                                   <option>Skrill</option>
+                                   <option>Payza</option>
                                  </select>
                                  <label for="category_select"><h6><b>Category</b></h6></label>
                                </div>
@@ -81,12 +81,13 @@
                    <div class="modal-content second">
                     <h5>Add New Category</h5>
                      <div class="input-field col s6">
-                                                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                                                    <input placeholder="Placeholder" id="category_name" type="text" class="validate">
                                                     <label for="first_name"><h6><b>Category Name</b></h6></label>
                                                   </div>
                    </div>
                    <div class="modal-footer">
-                     <a href="#!" id="saveButton" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+                     <a href="#!" id="saveButton" class=" modal-action modal-close waves-effect waves-green btn-flat first">Save Client!</a>
+                     <a href="#!" id="saveButtonCateory" class=" modal-action modal-close waves-effect waves-green btn-flat second">Save Cateory!</a>
                    </div>
                  </div>                                         
                </div>
@@ -108,8 +109,15 @@
                 var name = $('#first_name').val();
                 var categorys = $('#category_select').val();
                 insertClient(name, categorys);
+/*                searchClients(name);
+*/            });
+          }); 
+          (function(){
+            $('#saveButtonCateory').click(function(){
+              var categvar = $('#category_name').val();
+              insertCategory(categvar);
             });
-          });
+          })();   
        </script>
        <script>if (window.module) module = window.module;</script>
   </body>

@@ -8,6 +8,7 @@
   "description": "A random app for now",
   "license": "MIT",
   "dependencies": {
+    "materialize-autocomplete": "^1.0.7",
     "nedb": "^1.8.0"
   }
 }
