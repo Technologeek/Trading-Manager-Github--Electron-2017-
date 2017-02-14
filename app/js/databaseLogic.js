@@ -14,17 +14,25 @@ var insertClient = function(name, categorys) {
 	});
 };
 
-var insertCategory = function(categs) {
+var insertCategory = (function(categs) {
 	var categoryList = {
 		categs : categs
 	};
 	category.insert(categoryList, function(err,doc){
 		console.log('Inserted Category',doc.categs);
 	});
-	$.each(categoryList, function(key, value){
-		$('#category_name').append($('<option>', + {value : key}).text(value));
-	})
-};
+	console.log(categs);
+	category.find({},function(err,doc){
+		console.log(categs);
+		doc.forEach(function(categoryList){
+			console.log(doc.categoryList)
+			$('#category_select').append($('<option>',{value : categoryList.value},'</option>'));
+	});
+	/*$.each(categoryList, function(key, value){
+		$('#category_name').append($('<option>', + {categs : key}).text(categs));
+	})*/
+});
+})();
 
  var searchClients = function(name){
       /*var data2 = {
