@@ -2,6 +2,7 @@
 //Declaring On-Page Load Functions
 $(document).ready(function() {
 selectList();
+clientsList();
 });
 var Datastore = require('nedb');
 var clients = new Datastore({ filename:  'clients.db', autoload: true });
@@ -37,7 +38,7 @@ var selectList = function(categs){
 
 var clientsList = function(listClients) {
 	clients.find({},function(err,doc){
-		
+		console.log(doc);			
 	});
 };
 
