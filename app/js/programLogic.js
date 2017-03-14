@@ -23,7 +23,10 @@ function modalFunc2(){
 //Rating Stars Plugin initialization	
 	$(function () {	 
 	  $("#el").rateYo({
-	    rating: 3.6
+	    rating: 0, //Initial Rating
+	    normalFill: "#80cbc4", 
+	    ratedFill: "#004d40"
+
 	  });	 
 	});
 
@@ -48,16 +51,4 @@ var autoComplete = $("#autocomplete-input").autocomplete({
    });
 });	
 
-$(function() {	
-  $('input.autocomplete').autocomplete({
-  	source : "clients.db",
-    minLength: 3, 
-    delay: 0
-    /*data: {
-      "Apple": null,
-      "Microsoft": null,
-      "Google": 'http://placehold.it/250x250',
-    }*/
-  });
-});
 

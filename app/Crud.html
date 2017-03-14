@@ -9,6 +9,36 @@
     <link type="text/css" rel="stylesheet" href="css/CrudPage.css">
     <link type="text/css" rel="stylesheet" href="css/hover-min.css">
     <link type="text/css" rel="stylesheet" href="css/jquery.rateyo.min.css">
+    <style>
+        .autocomplete {
+            display: -ms-flexbox;
+            display: flex;
+        }
+        .autocomplete .ac-users {
+            padding-top: 10px;
+        }
+        .autocomplete .ac-users .chip {
+            -ms-flex: auto;
+            flex: auto;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+        .autocomplete .ac-users .chip:last-child {
+            margin-right: 5px;
+        }
+        .autocomplete .ac-dropdown .ac-hover {
+            background: #eee;
+        }
+        .autocomplete .ac-input {
+            -ms-flex: 1;
+            flex: 1;
+            min-width: 150px;
+            padding-top: 0.6rem;
+        }
+        .autocomplete .ac-input input {
+            height: 2.4rem;
+        }
+    </style>
   </head>
   <body>
   <div class="container">
@@ -20,9 +50,10 @@
            <div class="row">
              <div class="input-field col s12">
                <i class="material-icons prefix">search</i>
-               <input type="text" id="autocompleteInput" class="autocomplete">
-               <label for="autocompleteInput">Search Clients</label>
+               <input type="text" id="singleInput" data-activates="singleDropdown" data-beloworigin="true" autocomplete="off">
+               <label for="singleInput">Search Clients</label>
              </div>
+             <ul id="singleDropdown" class="dropdown-content ac-dropdown"></ul>
             </div>
            </div>
           </div>
@@ -58,24 +89,23 @@
                    <div class="modal-content first">
                      <h5>Enter Customer Details</h5>
                      <div class="input-field col s6">
-                               <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                               <label for="first_name"><h6><b>Client Name</b></h6></label>
+                               <input placeholder="Placeholder" id="first_name" required="" aria-required="true" type="text" class="selection">
+                               <label for="first_name" id="label_error"><h6><b>Client Name</b></h6></label>
                              </div>
                              <div class="input-field col s6">
-                                 <select id="category_select">
+                              <select id="category_select" class=" vaselection2">
                                    <option value="" disabled selected>Choose your option</option>
                                    <option>Paypal</option>
                                    <option>Neteller</option>
                                    <option>Skrill</option>
                                    <option>Payza</option>
                                  </select>
-                                 <label for="category_select"><h6><b>Category</b></h6></label>
+                                 <label for="category_select" id="laber_error2"><h6><b>Category</b></h6></label>
                                </div>
-                               <div class="input-field col s6 left-align" id="el">
-                                 </div>
+                               <div class="input-field col s6 left-align" id="el"></div>
                                  <div class="input-field inline col s6">
                                  Comments:
-                                          <input placeholder="Say Something.." type="text" class="">
+                                        <input placeholder="Maximum 20 Characters" id="form_comments" type="text" class="" maxlength="40">
                                           </div>                                        
                    </div>
                    <div class="modal-content second">
@@ -86,7 +116,7 @@
                                                   </div>
                    </div>
                    <div class="modal-footer">
-                     <a href="#!" id="saveButton" class=" modal-action modal-close waves-effect waves-green btn-flat first">Save Client!</a>
+                     <a href="#!" id="saveButton" class=" modal-action waves-effect waves-green btn-flat first">Save Client!</a>
                      <a href="#!" id="saveButtonCateory" class=" modal-action modal-close waves-effect waves-green btn-flat second">Save Cateory!</a>
                    </div>
                  </div>                                         
@@ -98,6 +128,7 @@
        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
        <script type="text/javascript" src="js/materialize.min.js"></script>
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize-autocomplete/1.0.7/jquery.materialize-autocomplete.js"></script>
        <script type="text/javascript" src="js/jquery.rateyo.min.js"></script>
        <script type="text/javascript" src="js/programLogic.js"></script>
        <script type="text/javascript" src="js/databaseLogic.js"></script>
@@ -105,19 +136,102 @@
           /* Use Jquery to your advantage */
           $(document).ready(function() {
             $('#saveButton').click(function() {
+              if($('.selection').val() == "" || $('.selection2').text() == ""){
+                console.log("reached");
+                $('#label_error,#laber_error2').attr('data-error', 'This field is required');
+              } else {
                 /// get the values of all the elements then call your db function.
                 var name = $('#first_name').val();
                 var categorys = $('#category_select').val();
-                insertClient(name, categorys);
+                var comments = $('#form_comments').val();
+                var ratings =  $("#el").rateYo("option", "rating");
+                console.log(ratings);
+                insertClient(name, categorys, comments, ratings);
+              }
 /*                searchClients(name);
 */            });
+            (function () {
+                    var single = $('#singleInput').materialize_autocomplete({
+                        multiple: {
+                            enable: false
+                        },
+                        dropdown: {
+                            el: '#singleDropdown'
+                        },
+                        getData: function(singleInput,customerNames){
+                          var data = clientsList(customerNames);
+                          console.log(data);
+                        }
+                    });
+
+
+                    var resultCache = {
+                        'A': [
+                            {
+                                id: 'Abe',
+                                text: 'Abe'
+                            },
+                            {
+                                id: 'Ari',
+                                text: 'Ari'
+                            }
+                        ],
+                        'B': [
+                            {
+                                id: 'Baz',
+                                text: 'Baz'
+                            }
+                        ],
+                        'BA': [
+                            {
+                                id: 'Baz',
+                                text: 'Baz'
+                            }
+                        ],
+                        'BAZ': [
+                            {
+                                id: 'Baz',
+                                text: 'Baz'
+                            }
+                        ],
+                        'AB': [
+                            {
+                                id: 'Abe',
+                                text: 'Abe'
+                            }
+                        ],
+                        'ABE': [
+                            {
+                                id: 'Abe',
+                                text: 'Abe'
+                            }
+                        ],
+                        'AR': [
+                            {
+                                id: 'Ari',
+                                text: 'Ari'
+                            }
+                        ],
+                        'ARI': [
+                            {
+                                id: 'Ari',
+                                text: 'Ari'
+                            }
+                        ]
+                    };
+
+                    single.resultCache = resultCache;
+                })();
           }); 
           (function(){
             $('#saveButtonCateory').click(function(){
               var categvar = $('#category_name').val();
+              console.log(categvar);
               insertCategory(categvar);
             });
-          })();   
+          })(); 
+          
+  
        </script>
        <script>if (window.module) module = window.module;</script>
   </body>
