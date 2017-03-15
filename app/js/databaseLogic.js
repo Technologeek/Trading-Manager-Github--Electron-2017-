@@ -37,9 +37,11 @@ var selectList = function(categs){
 };
 
 var clientsList = function(listClients) {
-	clients.find({},function(err,doc){
-		console.log(doc);			
-	});
+	clients.find({name : {$gt: ''}},function(err,doc){
+		doc.forEach(function(n){
+			console.log(n.name);
+		})
+	})
 };
 
 
