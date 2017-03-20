@@ -158,10 +158,11 @@
                         dropdown: {
                             el: '#singleDropdown'
                         },
-                        getData: function(singleInput,customerNames){
-                          var data = clientsList(customerNames);
-                          console.log(data);
+                        getData: function(singleInput,callback){
+                          var data = clientsList(singleInput);
+                          callback(singleInput, data);
                         }
+                        
                     });
 
 

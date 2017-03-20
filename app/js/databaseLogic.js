@@ -36,14 +36,19 @@ var selectList = function(categs){
 
 };
 
-var clientsList = function(listClients) {
-	clients.find({name : {$gt: ''}},function(err,doc){
-		doc.forEach(function(n){
-			console.log(n.name);
-		})
-	})
-};
 
+// function not called
+var clientsList = function(singleInput) {
+	//should basically be like that ^ indicates start of pattern andfollowed by singleInput . This won't work unless singleInput is put in regex format
+	var names = [];
+	var re = new RegExp("^" + singleInput, "i");
+	clients.find({name : {$regex : re }},function(err,doc){
+		doc.forEach(function(n, index){
+			names[index] = { 'id': index, 'text': n.name};
+		});
+	});
+	return names;
+};
 
 //Function Deletes all the categories from the database.Uncomment only when needed.
 /*(function(){
