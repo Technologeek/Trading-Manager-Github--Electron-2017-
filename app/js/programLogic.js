@@ -52,7 +52,7 @@ var autoComplete = $("#autocomplete-input").autocomplete({
 });	
 
 
-(function () {
+var autoCompleteFunc = function () {
         var single = $('#singleInput').materialize_autocomplete({
             multiple: {
                 enable: false
@@ -64,11 +64,8 @@ var autoComplete = $("#autocomplete-input").autocomplete({
               var data = clientsList(singleInput);
               callback(singleInput, data);
             },
-            onSelect: function(){
-            console.log('Hey');
-            $('#modal2').modal();
-            $('select').material_select();
-            $('#modal2').show();
+            onSelect: function(clientsList){
+
             }                       
         });                    
-    })();
+    }();
