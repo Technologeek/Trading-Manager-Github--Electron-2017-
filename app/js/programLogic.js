@@ -64,7 +64,9 @@ var autoCompleteFunc = function () {
               var data = clientsList(singleInput);
               callback(singleInput, data);
             },
-            onSelect: function(clientsList){
+            onSelect: function(){	
+            	console.log('hey');
+            	window.document.location.href = 'customer_data.html';
 
             }                       
         });                    
