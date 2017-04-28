@@ -44,7 +44,9 @@
   <div class="container">
     <div class="col s12" id="color_1">
       <p class="flow-text">Customer Details</p>
-            <a class="btn-floating btn-large waves-effect waves-light right-align"><i class="material-icons">add</i></a>
+      <div class="right-align">
+      <a class="btn-floating btn-large waves-effect waves-light right-align"><i class="material-icons">mode_edit</i></a>
+            </div>
     </div> 
             <div class="row">
               <div class="col s12 ">
@@ -64,15 +66,15 @@
                             <option>Skrill</option>
                             <option>Payza</option>
                           </select>
-                          </div>
                           <label for="category_select" id="laber_error2"><h6><b>Category</b></h6></label>
+                          </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col s12 ">
                         <div class="input-field col s6">
-                        Comments:
                                <input placeholder="Maximum 20 Characters" id="form_comments" type="text" class="" maxlength="40">
+                          <label for="form_comments" id="laber_error2"><h6><b>Comments</b></h6></label>
                                  </div>
                                  </div>
                                  </div>
@@ -81,6 +83,13 @@
                                  <div class="input-field col s6 left-align" id="el"></div> 
               </div>
             </div>
+            <div class="row">
+              <div class="col s12 ">
+              <div class="center-align">
+                <a class="waves-effect waves-light btn disabled" style="margin-top:40px"><i class="material-icons left">done</i>Save</a>
+                </div>
+                </div>
+                </div>
             <!-- Main Container -->
                   </div>
             
@@ -108,8 +117,8 @@
                 console.log(ratings);
                 insertClient(name, categorys, comments, ratings);
               }
-/*                searchClients(name);
-*/            });
+                //searchClients(name);       
+                    });
           }); 
           (function(){
             $('#saveButtonCateory').click(function(){
