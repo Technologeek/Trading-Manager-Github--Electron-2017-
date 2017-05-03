@@ -40,8 +40,8 @@
         }
     </style>
   </head>
-  <body>
-  <div class="container">
+  <body style="-webkit-app-region: drag">
+  <div class="container" style="-webkit-app-region: no-drag;">
     <div class="col s12" id="color_1">
       <p class="flow-text">Customer Details</p>
       <div class="right-align">
@@ -59,7 +59,7 @@
                       <div class="row">
                         <div class="col s12 ">
                       <div class="input-field col s6">
-                       <select id="category_select" class=" vaselection2">
+                       <select id="category_selected" class=" vaselection2">
                             <option value="" disabled selected>Choose your option</option>
                             <option>Paypal</option>
                             <option>Neteller</option>
@@ -103,31 +103,7 @@
        <script type="text/javascript" src="js/databaseLogic.js"></script>
        <script type="text/javascript">
           /* Use Jquery to your advantage */
-          $(document).ready(function() {
-            $('#saveButton').click(function() {
-              if($('.selection').val() == "" || $('.selection2').text() == ""){
-                console.log("reached");
-                $('#label_error,#laber_error2').attr('data-error', 'This field is required');
-              } else {
-                /// get the values of all the elements then call your db function.
-                var name = $('#first_name').val();
-                var categorys = $('#category_select').val();
-                var comments = $('#form_comments').val();
-                var ratings =  $("#el").rateYo("option", "rating");
-                console.log(ratings);
-                insertClient(name, categorys, comments, ratings);
-              }
-                //searchClients(name);       
-                    });
-          }); 
-          (function(){
-            $('#saveButtonCateory').click(function(){
-              var categvar = $('#category_name').val();
-              console.log(categvar);
-              insertCategory(categvar);
-            });
-          })(); 
-          
+          $('select').material_select();
   
        </script>
        <script>if (window.module) module = window.module;</script>
