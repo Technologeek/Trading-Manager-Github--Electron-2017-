@@ -124,6 +124,63 @@
               </div>
             <!-- Closing the main container div -->
           </div>
+          <!-- New Model for retrieved data -->
+          <div id="modalmagii" class="modal">
+          <div class="modal-content">
+          <div class="container" style="-webkit-app-region: no-drag;">
+            <div class="col s12" id="color_1">
+              <p class="flow-text custom teal-text">Customer Details</p>
+              <div class="right-align">
+              <a id="edit_mode" class="btn-floating btn-large waves-effect waves-light right-align"><i class="material-icons">mode_edit</i></a>
+                    </div>
+            </div> 
+                    <div class="row">
+                      <div class="col s12 ">
+                      <div class="input-field col s6">
+                                <input disabled placeholder="Placeholder" id="retrievedName" required="" aria-required="true" type="text" class="selection teal-text ">
+                                <label for="retrievedName" id="label_error"><h6><b>Client Name</b></h6></label>
+                              </div>
+                              </div>
+                              </div>
+                              <div class="row">
+                                <div class="col s12 ">
+                              <div class="input-field col s6">
+                               <select disabled id="category_retrived" class="vaselection2 teal-text">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option>Paypal</option>
+                                    <option>Neteller</option>
+                                    <option>disabled </option>
+                                    <option>Payza</option>
+                                  </select>
+                                  <label for="category_retrived" id="laber_error2"><h6><b>Category</b></h6></label>
+                                  </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col s12 ">
+                                <div class="input-field col s6">
+                                       <input disabled placeholder="Maximum 20 Characters" id="retrComments" type="text" class="teal-text" maxlength="40">
+                                  <label for="retrComments" id="laber_error4"><h6><b>Comments</b></h6></label>
+                                         </div>
+                                         </div>
+                                         </div>
+                                         <div class="row">
+                                           <div class="col s12 ">
+                                         <div class="input-field col s6 left-align" id="el2"></div> 
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col s12 ">
+                      <div class="center-align">
+                        <a class="waves-effect waves-light btn" disabled id="save_edit" style="margin-top:40px"><i class="material-icons left">done</i>Save</a>
+                        </div>
+                        </div>
+                        </div>
+                    <!-- Main Container -->
+                          </div>
+                          </div>
+                          </div>
+          <!-- Ends here -->
   <!--Import jQuery before materialize.js-->
        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>

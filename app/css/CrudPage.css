@@ -39,3 +39,9 @@
 .modal.bottom-sheet {
     top: auto!important;
     }
+
+.custom {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-color: #62bdb4!important;
+}

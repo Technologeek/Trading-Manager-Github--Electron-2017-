@@ -7,6 +7,7 @@ function modalFunc() {
 	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 	   $('#modal1').modal();
 	   $('select').material_select();
+	   $('#category_retrived').material_select();
 	   $(".second").hide();
 	   $(".first").show();
 	};
@@ -27,6 +28,10 @@ function modalFunc2(){
 	    normalFill: "#80cbc4", 
 	    ratedFill: "#004d40"
 
+	  });
+	  $("#el2").rateYo({
+	  	normalFill: "#80cbc4", 
+	  	ratedFill: "#004d40"
 	  });	 
 	});
 
@@ -66,8 +71,18 @@ var autoCompleteFunc = function () {
             },
             onSelect: function(){	
             	console.log('hey');
-            	window.document.location.href = 'customer_data.html';
-
+            	 clientsList(singleInput);
+            	 $('#modalmagii').modal();
+            	 $('#modalmagii').modal('open');
+            	 selectList();
+            	//window.document.location.href = 'customer_data.html';
+            	retrievedData();
+            	console.log('hey');
             }                       
         });                    
     }();
+
+$("#edit_mode").click(function(){
+	$(".teal-text").removeAttr("disabled");
+	$("#save_edit").attr("disabled",false);
+});
