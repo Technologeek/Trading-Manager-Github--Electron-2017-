@@ -18,6 +18,7 @@ var insertClient = function(name,categorys,comments,ratings){
 	}
 	clients.insert(data,function(err,doc){
 	})
+	clients.loadDatabase();
 };
 
 var insertCategory = function(categs) {
@@ -25,18 +26,21 @@ var insertCategory = function(categs) {
 		categs : categs
 	}
 	category.insert(categoryList,function(err,doc){
-	})
+		console.log("Inserted");
+	});
 };
 
 var selectList = function(categs){
+	category.loadDatabase();
+	$('#category_select').val('');
 		category.find({},function(err,doc){
 			doc.forEach(function(catlists){
+				console.log(catlists);
 				$('#category_select').append('<option>'+catlists.categs+'</option>');
 				$('#category_retrived').append('<option>'+catlists.categs+'</option>');
 				
 		})
-	})
-
+	});
 };
 
 
@@ -53,15 +57,17 @@ var clientsList = function(singleInput) {
 	});
 	return names;
 };
-
+var rtId;;
 var retrievedData = function(rtName,rtCateory,rtComment,rtRatings){
 	$('select').material_select();
 		var findName = $('#singleInput').val();
 		clients.findOne({ name: findName }, function (err, doc) {
 			console.log(doc.name);
+			console.log(doc._id);
 			console.log(doc.categorys);
 			console.log(doc.comments);
 			console.log(doc.ratings);
+			rtId = doc._id;
 			rtName = doc.name;
 			rtCateory = doc.categorys;
 			rtComment = doc.comments;
@@ -72,12 +78,24 @@ var retrievedData = function(rtName,rtCateory,rtComment,rtRatings){
 			    return this.text == rtCateory; 
 			}).attr('selected', true);
 			$("#retrComments").val(rtComment);
-			$("#retrComments").val(rtComment);
+			//$("#retrComments").val(rtComment);
 			$("#el2").rateYo("option", "rating",rtRatings);
 
 		});
 
 }
+var updateEntry = function(newName,newCategory,rId,newComment,newRatings){
+	var findName = $("#retrievedName").val();
+	var categorys = $('#category_retrived').val();
+	var comments = $('#retrComments').val();
+	var ratings =  $("#el2").rateYo("option", "rating");
+
+		
+	clients.update({ _id: rtId },{ name: findName,categorys: categorys,comments:comments,ratings:ratings}, {});
+	clients.update();
+
+};
+
 /*var getUserData = function(){
 
 	$('#client_Name').val() = .name;
@@ -89,9 +107,9 @@ var retrievedData = function(rtName,rtCateory,rtComment,rtRatings){
 };*/
 //Function Deletes all the categories from the database.Uncomment only when needed.
 /*(function(){
-	category.remove({}, { multi: true }, function (err, numRemoved) {
+	clients.remove({}, { multi: true }, function (err, numRemoved) {
 		console.log("removed!");
 	});
 
-})();
+})(); 
 */

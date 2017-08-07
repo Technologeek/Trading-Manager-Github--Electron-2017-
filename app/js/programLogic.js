@@ -6,15 +6,20 @@ function loadPage(){
 function modalFunc() {
 	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 	   $('#modal1').modal();
+	   selectList();
 	   $('select').material_select();
 	   $('#category_retrived').material_select();
 	   $(".second").hide();
 	   $(".first").show();
+	   $('#first_name').val();
+	   $(".selection").val(''); 
+ 	   $("#el").rateYo("rating", "0");
 	};
 //Function to open modal for Adding Catefory.
 /*I wil be opening the same modal but replacing the contents inside*/
 function modalFunc2(){
 	$('#modal1').modal();
+	$('#category_name').val('');
 	$('select').material_select();
 	$( "div.first" ).toggleClass( "second" );
 	/*Hiding and show the div's*/
@@ -57,6 +62,31 @@ var autoComplete = $("#autocomplete-input").autocomplete({
 });	
 
 
+$("#saveButton").click(function(){
+	if(!$('#first_name').val() ||  !$('#category_select').val() ){
+		alert("Client Name and Category are required!");
+	} else {
+	  /// get the values of all the elements then call your db function.
+	  var name = $('#first_name').val();
+	  var categorys = $('#category_select').val();
+	  var comments = $('#form_comments').val();
+	  var ratings =  $("#el").rateYo("option", "rating");
+	  console.log(ratings);
+	  insertClient(name, categorys, comments, ratings);
+	  $('#modal1').modal("close");
+	}
+});
+  $('#saveButtonCateory').click(function(){
+  	if(!$('#category_name').val()){
+  		alert("Category is required!");
+  	} else {
+    var categvar = $('#category_name').val();
+    console.log(categvar);
+    insertCategory(categvar);
+    selectList();
+}
+  });
+            
 var autoCompleteFunc = function () {
         var single = $('#singleInput').materialize_autocomplete({
             multiple: {
@@ -86,3 +116,11 @@ $("#edit_mode").click(function(){
 	$(".teal-text").removeAttr("disabled");
 	$("#save_edit").attr("disabled",false);
 });
+
+$("#save_edit").click(function(){
+	updateEntry();
+})
+function closeWin(){
+   window.close();  
+ }
+ 

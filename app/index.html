@@ -7,13 +7,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/customPageStyles.css">
   </head>
-  <body style="-webkit-app-region: drag">
+  <body style="">
+  <a class="right-align waves-effect waves-light white" style="font-size: 20px;" onclick="closeWin();">X</a>
   <div class="container">
     <div class="col s12" id="color_1">
-      <p class="flow-text">Welcome to Trader Manager V.C George,enter your password to continue.</p>
+      <p class="flow-text">Welcome to Trader Manager.Enter Your Password to continue.</p>
     </div>
          <form clas="col s12" action="javascript:loadPage();">
-               <div class="input-field col s6 class_2" style="-webkit-app-region: no-drag;">
+               <div class="input-field col s6 class_2" style="">
                 <input placeholder="Password" id="passWord" type="password" class="validate">
                 <div class="center">
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
@@ -23,16 +24,15 @@
            </div>
       </form>
       </div>
-      <footer class="page-footer teal lighten-2" style="-webkit-app-region: drag" >
-            <a class="grey-text text-lighten-4" href="https://github.com/technologeek">Author : TechnoloGeek</a>
-            <h7 class="white-text right">License: MIT</h5>
-      </footer>
+    <!--   <footer class="page-footer teal lighten-2" style="" >
+      </footer> -->
   <!--Import jQuery before materialize.js-->
        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
        <script type="text/javascript" src="js/materialize.min.js"></script>
        <script type="text/javascript" src="js/programLogic.js"></script>
        <script type="text/javascript" src="js/databaseLogic.js"></script>
+       <script type="text/javascript" src="/DesktopApp/main.js"></script>
        <script>if (window.module) module = window.module;</script>
   </body>
 </html>

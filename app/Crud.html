@@ -41,9 +41,10 @@
     </style>
   </head>
   <body style="-webkit-app-region: drag">
+  <a class="right-align waves-effect waves-light white" style="font-size: 20px;" onclick="closeWin();">X</a>
   <div class="container" style="-webkit-app-region: no-drag">
     <div class="col s12" id="color_1">
-      <p class="flow-text">Loaded</p>
+      <p class="flow-text">Enter Details</p>
     </div>
       <div class="row">
          <div class="col s12">
@@ -51,7 +52,7 @@
              <div class="input-field col s12">
                <i class="material-icons prefix">search</i>
                <input type="text" id="singleInput" data-activates="singleDropdown" data-beloworigin="true" autocomplete="off">
-               <label for="singleInput">Search Clients</label>
+               <label for="singleInput" style="color:white!important">Search Clients</label>
              </div>
              <ul id="singleDropdown" class="dropdown-content ac-dropdown"></ul>
             </div>
@@ -76,25 +77,17 @@
               </div>
             </div>
             <div class="row">
-              <div class="col s12 ">
-                <a class="grey-text text-lighten-4" href="https://github.com/technologeek">Download Text
-                <i class="material-icons">content_paste</i></a>
-                <a class="grey-text text-lighten-4" href="https://github.com/technologeek">Download Excel
-                <i class="material-icons">insert_drive_file</i></a>
-              </div>
-            </div>
-            <div class="row">
                <div class="col s12">
                <div id="modal1" class="modal bottom-sheet">
                    <div class="modal-content first">
                      <h5>Enter Customer Details</h5>
                      <div class="input-field col s6">
-                               <input placeholder="Placeholder" id="first_name" required="" aria-required="true" type="text" class="selection">
-                               <label for="first_name" id="label_error"><h6><b>Client Name</b></h6></label>
+                               <input placeholder="Name" id="first_name" type="text" class="selection">
+                               <label for="first_name"><h6><b>Client Name</b></h6></label>
                              </div>
                              <div class="input-field col s6">
-                              <select id="category_select" class=" vaselection2">
-                                   <option value="" disabled selected>Choose your option</option>
+                              <select id="category_select">
+                                   <option value="1" disabled selected>Choose your option</option>
                                    <option>Paypal</option>
                                    <option>Neteller</option>
                                    <option>Skrill</option>
@@ -104,19 +97,20 @@
                                </div>
                                <div class="input-field col s6 left-align" id="el"></div>
                                  <div class="input-field inline col s6">
-                                 Comments:
-                                        <input placeholder="Maximum 20 Characters" id="form_comments" type="text" class="" maxlength="40">
+                                        <input placeholder="Maximum 20 Characters" id="form_comments" type="text" class="selection" maxlength="40">
+                                        <label for="form_comments"><h6><b>Comments</h6></label>
+
                                           </div>                                        
                    </div>
                    <div class="modal-content second">
                     <h5>Add New Category</h5>
                      <div class="input-field col s6">
-                                                    <input placeholder="Placeholder" id="category_name" type="text" class="validate">
-                                                    <label for="first_name"><h6><b>Category Name</b></h6></label>
+                                                    <input placeholder="Placeholder" id="category_name" type="text" class="">
+                                                    <label for="category_name"><h6><b>Category Name</b></h6></label>
                                                   </div>
                    </div>
                    <div class="modal-footer">
-                     <a href="#!" id="saveButton" class=" modal-action waves-effect waves-green btn-flat first">Save Client!</a>
+                     <a href="#!"  id="saveButton" class=" modal-action waves-effect waves-green btn-flat first">Save Client!</a>
                      <a href="#!" id="saveButtonCateory" class=" modal-action modal-close waves-effect waves-green btn-flat second">Save Cateory!</a>
                    </div>
                  </div>                                         
@@ -192,29 +186,9 @@
        <script type="text/javascript">
           /* Use Jquery to your advantage */
           $(document).ready(function() {
-            $('#saveButton').click(function() {
-              if($('.selection').val() == "" || $('.selection2').text() == ""){
-                console.log("reached");
-                $('#label_error,#laber_error2').attr('data-error', 'This field is required');
-              } else {
-                /// get the values of all the elements then call your db function.
-                var name = $('#first_name').val();
-                var categorys = $('#category_select').val();
-                var comments = $('#form_comments').val();
-                var ratings =  $("#el").rateYo("option", "rating");
-                console.log(ratings);
-                insertClient(name, categorys, comments, ratings);
-              }
-/*                searchClients(name);
-*/            });
+           
           }); 
-          (function(){
-            $('#saveButtonCateory').click(function(){
-              var categvar = $('#category_name').val();
-              console.log(categvar);
-              insertCategory(categvar);
-            });
-          })(); 
+         
           
   
        </script>
