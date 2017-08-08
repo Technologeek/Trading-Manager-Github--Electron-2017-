@@ -37,7 +37,17 @@ Stack Contains
 
 Configuration
 --------------
- - Install
+ - Install Electron *(I have not included it as dev-dependency for version conflicts and your preferred settings)*
+    
+    Install as a development dependency
+    
+    `npm install electron --save-dev`
+
+ - Install the `electron` command globally in your $PATH
+ 
+    `npm install electron -g`
+  
+ - Install App
  
    Clone the repository and run
    
@@ -59,7 +69,17 @@ Configuration
    
 General Instructions
 --------------------
- - On running
+ - On running `npm start`,the app creates two given databases *clients.db & category.db* which would be empty until you feed data 
+   through the app.
+ - [materialize-autocomplete](https://github.com/icefox0801/materialize-autocomplete) gets trigerred by Backspace upon entering a          character.I'm assuming a bug in the plugin but owner has not updated the repo in almost an year so I didn't bother opening a PR.
+ - In an actual highly functional application,you could optimize the build by following intructions on the electron docs.
+ - The javascript/jquery written in the app is let simple for easier understanding.In an actual production environment,code should be      optimized using object oriented or other design pattern approaches.
+ 
+ Contributions
+--------------
+ - I have tested the application on my windows 8 machine.Should you come across any issues or want to update the app with the latest 
+   electron API,feel free to raise an issue.
+ - PR's always welcomed.
    
    
 
