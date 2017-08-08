@@ -81,6 +81,9 @@ General Instructions
    electron API,feel free to raise an issue.
  - PR's always welcomed.
  
+ 
+ Following app barely scratches the surface of what electron can do! If you read the electron docs, you'd know the advanced features 
+ provided by their API.
  *(If time permits,I will write a detailed tutorial on programming the application from scratch)*
    
    
