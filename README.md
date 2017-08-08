@@ -27,6 +27,8 @@ Stack Contains
 
 [Nodejs v6.9.2](https://nodejs.org/en/)
 
+[Materialize CSS v0.1](http://materializecss.com/)
+
 [RateYo Plugin](http://rateyo.fundoocode.ninja/)
 
 Configuration
