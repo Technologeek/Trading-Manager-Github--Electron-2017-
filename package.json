@@ -5,10 +5,13 @@
   "scripts": {
     "start": "electron ."
   },
-  "description": "A random app for now",
+  "description": "Simple CRUD operational App",
   "license": "MIT",
   "dependencies": {
     "materialize-autocomplete": "^1.0.7",
     "nedb": "^1.8.0"
-  }
+  },
+  "devDependencies": {
+    "electron-packager": "^8.7.2"
+      }
 }
