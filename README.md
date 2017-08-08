@@ -22,7 +22,23 @@ at my client's side using React.js and other advanced tools but to keep things s
 Stack Contains
 --------------
 [Electron v1.4.13](https://electron.atom.io/)
+
 [NeDb v1.8.0](https://github.com/louischatriot/nedb)
+
 [Nodejs v6.9.2](https://nodejs.org/en/)
+
 [RateYo Plugin](http://rateyo.fundoocode.ninja/)
+
+Configuration
+--------------
+ - Install
+ 
+   Clone the repository and run
+   
+   `npm install`
+   
+ - Star the application
+ 
+   `npm start`
+
 
