@@ -1,5 +1,5 @@
 # Trading-Manager
-Simple Desktop Application written in Github's Electron/HTML/CSS/JavaScript and a in-memory database NeDb (instance of mongoDb)
+Simple Responsive Desktop Application written in Github's Electron/HTML/CSS/JavaScript and a in-memory database NeDb (instance of mongoDb)
 
 #####  *Idea*
 > I was approached by one of the crypocurrency trader to build them a app which,
@@ -56,4 +56,10 @@ Configuration
    
    `electron-packager ~/DesktopApp Trader Manager --all --version=1.4.13 --out=~/Desktop --overwrite`
    *(Read more about the packager here [electron-packager](https://github.com/electron-userland/electron-packager))*
+   
+General Instructions
+--------------------
+ - On running
+   
+   
 
