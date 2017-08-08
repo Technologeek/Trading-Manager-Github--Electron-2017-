@@ -1,14 +1,60 @@
 body {
-	background-color: #00897b;
+    background-color: #00897b;
 }
+
 .flow-text {
-	font-size: 30px;
-	color: #eee;
+    font-size: 30px;
+    color: #eee;
 }
+
 .class_2 {
-padding-top: 50px;
+    padding-top: 50px;
 }
+
 .teal.lighten-2 {
     background-color: rgba(77, 182, 172, 0) !important;
     margin-top: 250px;
-  }
+}
+
+.draggable {
+    -webkit-app-region: drag;
+}
+
+. no-draggable {
+    -webkit-app-region: no-drag;
+}
+
+.autocomplete {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.autocomplete .ac-users {
+    padding-top: 10px;
+}
+
+.autocomplete .ac-users .chip {
+    -ms-flex: auto;
+    flex: auto;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.autocomplete .ac-users .chip:last-child {
+    margin-right: 5px;
+}
+
+.autocomplete .ac-dropdown .ac-hover {
+    background: #eee;
+}
+
+.autocomplete .ac-input {
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 150px;
+    padding-top: 0.6rem;
+}
+
+.autocomplete .ac-input input {
+    height: 2.4rem;
+}

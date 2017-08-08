@@ -1,197 +1,179 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>Trader Manager</title>
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/customPageStyles.css">
     <link type="text/css" rel="stylesheet" href="css/CrudPage.css">
     <link type="text/css" rel="stylesheet" href="css/hover-min.css">
     <link type="text/css" rel="stylesheet" href="css/jquery.rateyo.min.css">
-    <style>
-        .autocomplete {
-            display: -ms-flexbox;
-            display: flex;
-        }
-        .autocomplete .ac-users {
-            padding-top: 10px;
-        }
-        .autocomplete .ac-users .chip {
-            -ms-flex: auto;
-            flex: auto;
-            margin-bottom: 10px;
-            margin-right: 10px;
-        }
-        .autocomplete .ac-users .chip:last-child {
-            margin-right: 5px;
-        }
-        .autocomplete .ac-dropdown .ac-hover {
-            background: #eee;
-        }
-        .autocomplete .ac-input {
-            -ms-flex: 1;
-            flex: 1;
-            min-width: 150px;
-            padding-top: 0.6rem;
-        }
-        .autocomplete .ac-input input {
-            height: 2.4rem;
-        }
-    </style>
-  </head>
-  <body style="-webkit-app-region: drag">
-  <a class="right-align waves-effect waves-light white" style="font-size: 20px;" onclick="closeWin();">X</a>
-  <div class="container" style="-webkit-app-region: no-drag">
-    <div class="col s12" id="color_1">
-      <p class="flow-text">Enter Details</p>
-    </div>
-      <div class="row">
-         <div class="col s12">
-           <div class="row">
-             <div class="input-field col s12">
-               <i class="material-icons prefix">search</i>
-               <input type="text" id="singleInput" data-activates="singleDropdown" data-beloworigin="true" autocomplete="off">
-               <label for="singleInput" style="color:white!important">Search Clients</label>
-             </div>
-             <ul id="singleDropdown" class="dropdown-content ac-dropdown"></ul>
+</head>
+
+<body>
+    <div class="container no-draggable">
+        <div class="col s12" id="color_1">
+            <p class="flow-text">Enter Details</p>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" id="singleInput" data-activates="singleDropdown" data-beloworigin="true" autocomplete="off">
+                        <label for="singleInput" style="color:white!important">Search Clients</label>
+                    </div>
+                    <ul id="singleDropdown" class="dropdown-content ac-dropdown"></ul>
+                </div>
             </div>
-           </div>
-          </div>
-            <div class="row">
-              <div class="col s12 ">
+        </div>
+        <div class="row">
+            <div class="col s12 ">
                 <div class="input-field inline">
-                <a href="#modal1" onclick="modalFunc()">
+                    <a href="#modal1" onclick="modalFunc()">
                 <i class="material-icons md-60 ">group_add</i>
                 </div>
                 <span class="edit_label hvr-pulse-shrink hoverColor">Add New Client</span></a>
-              </div>
+                </div>
             </div>
             <div class="row">
-              <div class="col s12 ">
-                <div class="input-field inline">
-                <a href="#modal1" class="" onclick="modalFunc2()">
+                <div class="col s12 ">
+                    <div class="input-field inline">
+                        <a href="#modal1" class="" onclick="modalFunc2()">
                 <i class="material-icons md-60 ">assignment_ind</i>
                 </div>
                 <span class="edit_label hvr-pulse-shrink hoverColor">Add New Category</span></a>
-              </div>
-            </div>
-            <div class="row">
-               <div class="col s12">
-               <div id="modal1" class="modal bottom-sheet">
-                   <div class="modal-content first">
-                     <h5>Enter Customer Details</h5>
-                     <div class="input-field col s6">
-                               <input placeholder="Name" id="first_name" type="text" class="selection">
-                               <label for="first_name"><h6><b>Client Name</b></h6></label>
-                             </div>
-                             <div class="input-field col s6">
-                              <select id="category_select">
-                                   <option value="1" disabled selected>Choose your option</option>
-                                   <option>Paypal</option>
-                                   <option>Neteller</option>
-                                   <option>Skrill</option>
-                                   <option>Payza</option>
-                                 </select>
-                                 <label for="category_select" id="laber_error2"><h6><b>Category</b></h6></label>
-                               </div>
-                               <div class="input-field col s6 left-align" id="el"></div>
-                                 <div class="input-field inline col s6">
-                                        <input placeholder="Maximum 20 Characters" id="form_comments" type="text" class="selection" maxlength="40">
-                                        <label for="form_comments"><h6><b>Comments</h6></label>
-
-                                          </div>                                        
-                   </div>
-                   <div class="modal-content second">
-                    <h5>Add New Category</h5>
-                     <div class="input-field col s6">
-                                                    <input placeholder="Placeholder" id="category_name" type="text" class="">
-                                                    <label for="category_name"><h6><b>Category Name</b></h6></label>
-                                                  </div>
-                   </div>
-                   <div class="modal-footer">
-                     <a href="#!"  id="saveButton" class=" modal-action waves-effect waves-green btn-flat first">Save Client!</a>
-                     <a href="#!" id="saveButtonCateory" class=" modal-action modal-close waves-effect waves-green btn-flat second">Save Cateory!</a>
-                   </div>
-                 </div>                                         
-               </div>
-              </div>
-            <!-- Closing the main container div -->
-          </div>
-          <!-- New Model for retrieved data -->
-          <div id="modalmagii" class="modal">
-          <div class="modal-content">
-          <div class="container" style="-webkit-app-region: no-drag;">
-            <div class="col s12" id="color_1">
-              <p class="flow-text custom teal-text">Customer Details</p>
-              <div class="right-align">
-              <a id="edit_mode" class="btn-floating btn-large waves-effect waves-light right-align"><i class="material-icons">mode_edit</i></a>
                     </div>
-            </div> 
-                    <div class="row">
-                      <div class="col s12 ">
-                      <div class="input-field col s6">
-                                <input disabled placeholder="Placeholder" id="retrievedName" required="" aria-required="true" type="text" class="selection teal-text ">
-                                <label for="retrievedName" id="label_error"><h6><b>Client Name</b></h6></label>
-                              </div>
-                              </div>
-                              </div>
-                              <div class="row">
-                                <div class="col s12 ">
-                              <div class="input-field col s6">
-                               <select disabled id="category_retrived" class="vaselection2 teal-text">
-                                    <option value="" disabled selected>Choose your option</option>
-                                    <option>Paypal</option>
-                                    <option>Neteller</option>
-                                    <option>disabled </option>
-                                    <option>Payza</option>
-                                  </select>
-                                  <label for="category_retrived" id="laber_error2"><h6><b>Category</b></h6></label>
-                                  </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col s12 ">
+                </div>
+                <div class="row right-align">
+                    <div class="col s12 ">
+                        <a class="waves-effect waves-light btn no-draggable" style="margin-top: 120px" onclick="closeWin()">close</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div id="modal1" class="modal bottom-sheet">
+                            <div class="modal-content first">
+                                <h5>Enter Customer Details</h5>
                                 <div class="input-field col s6">
-                                       <input disabled placeholder="Maximum 20 Characters" id="retrComments" type="text" class="teal-text" maxlength="40">
-                                  <label for="retrComments" id="laber_error4"><h6><b>Comments</b></h6></label>
-                                         </div>
-                                         </div>
-                                         </div>
-                                         <div class="row">
-                                           <div class="col s12 ">
-                                         <div class="input-field col s6 left-align" id="el2"></div> 
-                      </div>
+                                    <input placeholder="Name" id="first_name" type="text" class="selection">
+                                    <label for="first_name">
+                                        <h6><b>Client Name</b></h6></label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <select id="category_select">
+                                        <option value="1" disabled selected>Choose your option</option>
+                                        <option>Paypal</option>
+                                        <option>Neteller</option>
+                                        <option>Skrill</option>
+                                        <option>Payza</option>
+                                    </select>
+                                    <label for="category_select" id="laber_error2">
+                                        <h6><b>Category</b></h6></label>
+                                </div>
+                                <div class="input-field col s6 left-align" id="el"></div>
+                                <div class="input-field inline col s6">
+                                    <input placeholder="Maximum 20 Characters" id="form_comments" type="text" class="selection" maxlength="40">
+                                    <label for="form_comments">
+                                        <h6><b>Comments</h6></label>
+                                </div>
+                            </div>
+                            <div class="modal-content second">
+                                <h5>Add New Category</h5>
+                                <div class="input-field col s6">
+                                    <input placeholder="Placeholder" id="category_name" type="text" class="">
+                                    <label for="category_name">
+                                        <h6><b>Category Name</b></h6></label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" id="saveButton" class=" modal-action waves-effect waves-green btn-flat first">Save Client!</a>
+                                <a href="#!" id="saveButtonCateory" class=" modal-action modal-close waves-effect waves-green btn-flat second">Save Cateory!</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row">
-                      <div class="col s12 ">
-                      <div class="center-align">
-                        <a class="waves-effect waves-light btn" disabled id="save_edit" style="margin-top:40px"><i class="material-icons left">done</i>Save</a>
+                </div>
+                <!-- Closing the main container div -->
+            </div>
+            <!-- New Model for retrieved data -->
+            <div id="dataModal" class="modal">
+                <div class="modal-content">
+                    <div class="container no-draggable">
+                        <div class="col s12" id="color_1">
+                            <p class="flow-text custom teal-text">Customer Details</p>
+                            <div class="right-align">
+                                <a id="edit_mode" class="btn-floating btn-large waves-effect waves-light right-align"><i class="material-icons">mode_edit</i></a>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col s12 ">
+                                <div class="input-field col s6">
+                                    <input disabled placeholder="Placeholder" id="retrievedName" required aria-required="true" type="text" class="selection teal-text ">
+                                    <label for="retrievedName" id="label_error">
+                                        <h6><b>Client Name</b></h6></label>
+                                </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col s12 ">
+                                <div class="input-field col s6">
+                                    <select id="category_retrived" class="teal-text">
+                                        <option value="" disabled>Choose your option</option>
+                                        <option>Paypal</option>
+                                        <option>Neteller</option>
+                                        <option>disabled </option>
+                                        <option>Payza</option>
+                                    </select>
+                                    <label for="category_retrived" id="laber_error2">
+                                        <h6><b>Category</b></h6></label>
+                                </div>
+                            </div>
                         </div>
-                    <!-- Main Container -->
-                          </div>
-                          </div>
-                          </div>
-          <!-- Ends here -->
-  <!--Import jQuery before materialize.js-->
-       <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-       <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-       <script type="text/javascript" src="js/materialize.min.js"></script>
-       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize-autocomplete/1.0.7/jquery.materialize-autocomplete.js"></script>
-       <script type="text/javascript" src="js/jquery.rateyo.min.js"></script>
-       <script type="text/javascript" src="js/programLogic.js"></script>
-       <script type="text/javascript" src="js/databaseLogic.js"></script>
-       <script type="text/javascript">
-          /* Use Jquery to your advantage */
-          $(document).ready(function() {
-           
-          }); 
-         
-          
-  
-       </script>
-       <script>if (window.module) module = window.module;</script>
-  </body>
+                        <div class="row">
+                            <div class="col s12 ">
+                                <div class="input-field col s6">
+                                    <input disabled placeholder="Maximum 20 Characters" id="retrComments" type="text" class="teal-text" maxlength="40">
+                                    <label for="retrComments" id="laber_error4">
+                                        <h6><b>Comments</b></h6></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 ">
+                                <div class="input-field col s6 left-align" id="el2"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 ">
+                                <div class="center-align">
+                                    <a class="waves-effect waves-light btn" disabled id="save_edit" style="margin-top:40px"><i class="material-icons left">done</i>Save</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Main Container -->
+                    </div>
+                </div>
+            </div>
+            <!-- Ends here -->
+            <!--Import jQuery before materialize.js-->
+            <script>
+            if (typeof module === 'object') {
+                window.module = module;
+                module = undefined;
+            }
+            </script>
+            <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+            <script type="text/javascript" src="js/materialize.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize-autocomplete/1.0.7/jquery.materialize-autocomplete.js"></script>
+            <script type="text/javascript" src="js/jquery.rateyo.min.js"></script>
+            <script type="text/javascript" src="js/programLogic.js"></script>
+            <script type="text/javascript" src="js/databaseLogic.js"></script>
+            </script>
+            <script>
+            if (window.module) module = window.module;
+            </script>
+</body>
+
 </html>
