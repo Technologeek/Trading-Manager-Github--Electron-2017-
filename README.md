@@ -11,6 +11,10 @@ Simple Desktop Application written in Github's Electron/HTML/CSS/JavaScript and 
 > I took this opportunity to dig into [Github's Electron](https://electron.atom.io/) which I always wanted to experience on a fancy 
   occassion as this. 
   
+ #####  *Preview*
+ ![](https://gifyu.com/images/Untitledf2556.gif)
+
+   
 #####  *Challenges*
 > At first,everything seemed very exciting.I was overwheelmed by the idea of using HTML/CSS to write a windows desktop application.Setting
 up the project was easy as well.However lack of proper documentation and outdated tutorials on the web of the API made process much more
