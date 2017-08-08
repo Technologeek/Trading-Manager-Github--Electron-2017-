@@ -46,5 +46,14 @@ Configuration
  - Star the application
  
    `npm start`
+   
+- To run the build (.exe)/Zip for distribution
 
+  `electron-packager <location of project> <name of project> <platform> <architecture> <electron version> <optional options>`
+  *(electron-packager is downloaded as a dev-dependency)*
+  
+   Sample Build :
+   
+   `electron-packager ~/DesktopApp Trader Manager --all --version=1.4.13 --out=~/Desktop --overwrite`
+   *(Read more about the packager here [electron-packager](https://github.com/electron-userland/electron-packager))*
 
