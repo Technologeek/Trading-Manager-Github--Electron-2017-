@@ -53,7 +53,7 @@ Configuration
    
    `npm install`
    
- - Star the application
+ - Start the application
  
    `npm start`
    
@@ -73,13 +73,15 @@ General Instructions
    through the app.
  - [materialize-autocomplete](https://github.com/icefox0801/materialize-autocomplete) gets trigerred by Backspace upon entering a          character.I'm assuming a bug in the plugin but owner has not updated the repo in almost an year so I didn't bother opening a PR.
  - In an actual highly functional application,you could optimize the build by following intructions on the electron docs.
- - The javascript/jquery written in the app is let simple for easier understanding.In an actual production environment,code should be      optimized using object oriented or other design pattern approaches.
+ - The javascript/jquery written in the app is let simple for easier understanding.In an actual production environment,code should be      optimized using object oriented or other design patterns.
  
  Contributions
 --------------
  - I have tested the application on my windows 8 machine.Should you come across any issues or want to update the app with the latest 
    electron API,feel free to raise an issue.
  - PR's always welcomed.
+ 
+ *(If time permits,I will write a detailed tutorial on programming the application from scratch)*
    
    
 
