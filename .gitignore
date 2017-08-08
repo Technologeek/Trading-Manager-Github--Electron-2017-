@@ -3,3 +3,7 @@ node_modules
 
 # npm debug log
 npm-debug.log
+
+# database
+category.db
+clients.db
